@@ -1,0 +1,76 @@
+[
+    {
+        "id": 1,
+        "tipo": "pc",
+        "char": "AMD  RYZEN 7 5700G - 32 GB RAM DDR4 3600Mhz - SSD 2TB",
+        "div": "USD",
+        "precio": 1299,
+        "img": "https://www.pccompu.com.uy/imgs/productos/productos31_44979.jpg"
+    },
+    
+    {
+        "id": 2,
+        "tipo": "pc",
+        "char": "AMD  RYZEN 7 5700X - 32 GB RAM DDR4 3600Mhz - RTX 3060 - SSD 2TB",
+        "div": "USD",
+        "precio": 1700 ,
+        "img": "https://www.pccompu.com.uy/imgs/productos/productos31_44979.jpg"
+    },
+    {
+        "id": 3,
+        "tipo": "pc",
+        "char": "INTEL I7 11700F - 32 GB RAM DDR4 3600Mhz - RTX 3060 TI 8GB GDDR 6 - SSD 2TB",
+        "div": "USD",
+        "precio": 1990,
+        "img": "https://www.pccompu.com.uy/imgs/productos/productos34_40475.jpg"
+    },
+    {
+        "id": 4,
+        "tipo": "cpu",
+        "char": "AMD RYZEN 9 5950X 16 Núcleos 3.4Ghz TURBO 4.9Ghz",
+        "div": "USD",
+        "precio": 900,
+        "img": "https://http2.mlstatic.com/D_NQ_NP_879954-MLA45377523473_032021-O.jpg"
+    },
+    {
+        "id": 5,
+        "tipo": "cpu",
+        "char": "INTEL I5 11400 6 Núcleos 2.6Ghz TURBO 4.4Ghz",
+        "div": "USD",
+        "precio": 240,
+        "img": "https://thotcomputacion.com.uy/wp-content/uploads/2020/05/i5-10.png"
+    },
+    {
+        "id": 6,
+        "tipo": "cpu",
+        "char": "INTEL I5 11400 6 Núcleos 2.6Ghz TURBO 4.4Ghz",
+        "div": "USD",
+        "precio": 240,
+        "img": "https://thotcomputacion.com.uy/wp-content/uploads/2020/05/i5-10.png"
+    },
+    {
+        "id": 7,
+        "tipo": "accesorios",
+        "char": "TECLADO AORUS K1",
+        "div": "USD",
+        "precio": 100,
+        "img": "https://www.banifox.com/imagenes/img_contenido/fotos/a/k1aorus3.jpg"
+    },
+    {
+        "id": 8,
+        "tipo": "accesorios",
+        "char": "TECLADO ASUS ROG X803 STRIX",
+        "div": "USD",
+        "precio": 135,
+        "img": "https://www.banifox.com/imagenes/img_contenido/productos/a/BFXAST53.jpg"
+    }
+    ,
+    {
+        "id": 9,
+        "tipo": "accesorios",
+        "char": "TECLADO ASUS ROG XA01 STRIX",
+        "div": "USD",
+        "precio": 145,
+        "img": "https://www.banifox.com/imagenes/img_contenido/productos/a/BFXAST48.jpg"
+    }
+]
