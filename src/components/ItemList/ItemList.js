@@ -1,5 +1,5 @@
 import Item from "./Item"
-import { useEffect, useState } from 'react';
+
 
 const ItemList = ({ products }) => {
  
