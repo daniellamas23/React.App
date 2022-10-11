@@ -4,14 +4,14 @@ import './ItemListContainer.css';
 /* import products from '../../Products.json' */
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import { getAllProducts, getProductsByCategory } from '../products'
+import { getAllProducts, getProductsByCategory, getProducts } from '../products'
 
 
 const ItemListContainer = ({ greeting }) => {
 
   const [products, setProducts] = useState([])
   const { categoryId } = useParams();
-  { console.log(categoryId)}
+
   useEffect(() => {
     console.log(categoryId)
     if (categoryId) {

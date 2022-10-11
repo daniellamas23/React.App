@@ -7,8 +7,6 @@ const Item = ({ product }) => {
     return (<>
 
         {product &&
-
-        
             (<Container style={{ display: 'grid' }}>
                 <Card style={{ width: '20rem' }}>
                     <Card.Img variant="top" src={product.img} />

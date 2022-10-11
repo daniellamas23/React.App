@@ -9,7 +9,7 @@ import Item from '../ItemList/Item'
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState()
   const { id } = useParams();
-  console.log({ id })
+  console.log( id +  " CONSOLE LOG DE ID" )
 
   useEffect(() => {
     getProduct(id)
@@ -23,7 +23,6 @@ const ItemDetailContainer = () => {
 
 
   return (
-
     <Container>
       <h1> Detalle del producto (ITEM DETAIL CONTAINER)</h1>
       <Item product={product} />
