@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { Container } from "react-bootstrap";
 import { useParams } from "react-router-dom"
 import { getProduct } from '../products'
-import Item from '../ItemList/Item'
+import ItemDetail from "./ItemDetail";
+
 
 
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState()
   const { id } = useParams();
-  console.log( id +  " CONSOLE LOG DE ID" )
 
   useEffect(() => {
     getProduct(id)
@@ -21,11 +21,10 @@ const ItemDetailContainer = () => {
 
 
 
-
   return (
     <Container>
       <h1> Detalle del producto (ITEM DETAIL CONTAINER)</h1>
-      <Item product={product} />
+      {product && <ItemDetail product={product} />}
     </Container>
   )
 }

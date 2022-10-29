@@ -3,6 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+
+  apiKey: "AIzaSyDUcFP-tfmlyyemKwnvAqcQSfFADk05YLg",
+  authDomain: "powergamer-ecommerce.firebaseapp.com",
+  projectId: "powergamer-ecommerce",
+  storageBucket: "powergamer-ecommerce.appspot.com",
+  messagingSenderId: "559504780522",
+  appId: "1:559504780522:web:5591c2f665a8f0440a7b93"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
