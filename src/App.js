@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <BrowserRouter /*  basename='/React.App' */ >
+      <BrowserRouter basename='/React.App' >
         <CartProvider>
         <NavBar />       
         <Routes>
