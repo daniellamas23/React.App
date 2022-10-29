@@ -4,7 +4,7 @@ import './ItemListContainer.css';
 /* import products from '../../Products.json' */
 import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
-import { getAllProducts, getProductsByCategory, getProducts } from '../products'
+import { getAllProducts, getProductsByCategory } from '../products'
 
 
 const ItemListContainer = ({ greeting }) => {
@@ -24,7 +24,6 @@ const ItemListContainer = ({ greeting }) => {
         .catch((error) => console.warn(error))
     }
   }, [categoryId])
-
 
   return (
 

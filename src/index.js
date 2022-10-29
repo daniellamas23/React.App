@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from "firebase/app";
-
+//Firebase config
 const firebaseConfig = {
 
   apiKey: "AIzaSyDUcFP-tfmlyyemKwnvAqcQSfFADk05YLg",
@@ -15,7 +15,7 @@ const firebaseConfig = {
   appId: "1:559504780522:web:5591c2f665a8f0440a7b93"
 
 };
-
+//Initialize firebase
 const app = initializeApp(firebaseConfig);
 
 

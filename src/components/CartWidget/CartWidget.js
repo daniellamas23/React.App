@@ -11,7 +11,7 @@ const CartWidget = () => {
     <>
       <Link to="/cart">
         <AiOutlineShoppingCart />
-        <Badge bg="danger" text="dark" >
+        <Badge style={{fontWeight:"900"}} pill bg="danger" text="dark">
             {totalQuantity}
           </Badge>
       </Link>

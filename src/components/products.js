@@ -1,33 +1,61 @@
+import {getFirestore, getDocs, collection, getDoc, doc, query, where } from 'firebase/firestore';
 
 import products from '../Products.json'
 
 export const getAllProducts = () => {
-  const promise = new Promise((resolve) => {
-    setTimeout(() => {
-      return resolve(products);
-    }, 2000)
-  })
-
-  return promise
+  //obtenemos db
+  const database = getFirestore();
+  //obtenemos referencia
+  const collectionReference = collection(database, 'items');
+  return getDocs(collectionReference)
+    .then(snapshot => {
+      const list = snapshot
+        .docs
+        .map((info) => ({
+          //armamos objeto
+          id: info.id,
+          ...info.data()
+        }))
+        return list
+        
+    })
+    .catch((error) => console.warn(error))
 };
 
 export const getProduct = (id) => {
-  const promise = new Promise((resolve) => {
-    const result = products.find((product) => product.id === parseInt(id))
-    setTimeout(() => {
-      return resolve(result);
-    }, 2000)
-  })
-  return promise
+  const database = getFirestore();
+  const itemReference = doc(database, "items", id);
+  return getDoc(itemReference).then((captura) => {
+    if (captura.exists()) {
+      const item = { //armamos objeto
+        id: captura.id,
+        ...captura.data()
+      }
+      return item
+    }
+  }).catch(error => console.warn(error))
+    
+  
+
+
+
+
 };
-
+//Filtrar por categoría
 export const getProductsByCategory = (categoryId) => {
-  const promise = new Promise((resolve) => {
-    const results = products.filter((product) => product.tipo === categoryId);
-    setTimeout(() => {
-      return resolve(results);
-    }, 2000)
-  })
-
-  return promise
-}; 
+  const database = getFirestore()
+  const collectionReference = collection(database, 'items');
+  //Se realiza query y con where se hace la comparacion
+  const collectionQuery = query(collectionReference, where('tipo', '==', categoryId))
+    
+    return getDocs(collectionQuery)
+    .then (snapshot => {
+      const list = snapshot
+      .docs
+      .map((doc) => ({
+        id:doc.id,
+        ...doc.data()
+      }))
+      return list
+    }).catch(error => console.warn(error))
+    }
