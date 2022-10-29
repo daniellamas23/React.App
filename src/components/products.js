@@ -1,7 +1,5 @@
 import {getFirestore, getDocs, collection, getDoc, doc, query, where } from 'firebase/firestore';
 
-import products from '../Products.json'
-
 export const getAllProducts = () => {
   //obtenemos db
   const database = getFirestore();
