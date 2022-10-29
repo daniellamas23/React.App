@@ -18,22 +18,19 @@ export const CartProvider = ({ children }) => {
                 ...product,
                 cantidad
             }
-            console.log("CONSOLE LOG VARIOS " + product.id +"  <-- product id " + JSON.stringify(item) )
             setCart([...cart, item])
         }
         //si está repetido solo actualizo la cantidad
         else {
             //buscamos index de item
             const itemIndex = cart.findIndex((item) => item.id === parseInt(product.id))
-            console.log(id + "   ID LOG")
-            console.log(product.id + "   product.ID LOG")
             //creamos borrador del item para no modificar el estado del carrito
             const itemDraft = {...cart[itemIndex]}
             //actualizamos cantidad en borrador
             itemDraft.cantidad = itemDraft.cantidad + cantidad
-            //borrador de carrito
+            //borrador de carrito que actualizo para luego setearlo en el estado con set cart
             const cartDraft = [...cart]
-            //actualizamos 
+            //actualizamos borrador y seteamos cart , se debe realizar así para no modificar estado de componente
             cartDraft[itemIndex] = itemDraft
             setCart(cartDraft)
         }
@@ -45,7 +42,7 @@ export const CartProvider = ({ children }) => {
 
 
     const removeItem = (itemId) => {
-      const cartDraft =  cart.filter((item) => item.id === itemId)
+      const cartDraft =  cart.filter((item) => item.id !== itemId)
       setCart(cartDraft)
     }
 
@@ -53,10 +50,13 @@ export const CartProvider = ({ children }) => {
         setCart([])
     }
 
+    const total =  cart.reduce((items , item) => items + ( item.precio * item.cantidad) , 0) + " USD" 
+   
+    const totalQuantity = cart.reduce((items, item) => items + item.cantidad, 0);
 
     return (
         <>
-            <CartContext.Provider value={{ cart, addItem, existInCart, clear, removeItem }}>
+            <CartContext.Provider value={{ cart, addItem, existInCart, clear, removeItem, total , totalQuantity }}>
                 {children}
             </CartContext.Provider>
         </>

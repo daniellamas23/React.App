@@ -22,7 +22,7 @@ const ItemDetail = ({ product }) => {
 
     return (
         <>
-            <Item product={product} />
+            <Item product={product}/>
             {showItemCount && (<Counter ini={1} stock={10} onAdd={handleAdd} />)}
             {!showItemCount && (
                 <Link to='/cart'>
