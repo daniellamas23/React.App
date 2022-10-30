@@ -30,7 +30,8 @@ const Cart = () => {
       total
     };
     const newOrderId = await createOrder(newOrder)
-    setOrderId(newOrderId)        
+    setOrderId(newOrderId)     
+       
     }; 
 
 

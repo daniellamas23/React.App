@@ -8,10 +8,9 @@ const OrderModal = ({ handleBuy , orderId, clear}) => {
 
   const [show, setShow] = useState(false);
   const[showOrderId, setShowOrderId] = useState(false)
+  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-
-
 
   return (
     <>
@@ -64,12 +63,13 @@ const OrderModal = ({ handleBuy , orderId, clear}) => {
             </>
           )}
           {orderId && (
+            
             <>
-              <Alert key="success" variant="success">
+             <Alert key="success" variant="success">
               Numero de Orden: {orderId}
               </Alert>
               <Link to="/">
-              <Button variant="success" onClick={() => clear()}>Seguir comprando</Button>
+              <Button variant="success">Seguir comprando</Button>
               </Link>
             </>
 

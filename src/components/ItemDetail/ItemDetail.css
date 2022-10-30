@@ -1,3 +1,5 @@
-.ItemDetail {
-    background-color:red;
+
+.Counter {
+    display: flex;
+    justify-content: center;
 }

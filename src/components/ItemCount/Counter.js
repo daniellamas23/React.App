@@ -22,22 +22,11 @@ const Counter = ({ onAdd, ini, stock }) => {
         setCount(ini)
     }, [ini])
 
-    /* 
-        const task = new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(!true)
-            }, 3000)
-        })
-        console.log(task)
-        task.then((result) => {
-            console.log(result)
-        }) */
-
 
 
     return (
         <>
-            <div className="CounterContainer">
+            <div className="Counter">
                 <Button variant="danger" disabled={count <= 1} onClick={handleClickMinus}>-</Button>
                 <span>{count}</span>
                 <Button variant="primary" disabled={count >= 10} onClick={handleClickAdd}>+</Button>

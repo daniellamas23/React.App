@@ -4,6 +4,7 @@ import CartContext from "../../contexts/CartContext";
 import { useContext, useState } from "react"
 import { Button } from "react-bootstrap"
 import { Link } from "react-router-dom"
+import './ItemDetail.css'
 
 
 
@@ -22,9 +23,12 @@ const ItemDetail = ({ product }) => {
     }
 
     return (
-        <>
-            <Item product={product}/>
-            {showItemCount && (<Counter ini={1} stock={10} onAdd={handleAdd} />)}
+        <>  
+        <div style={{textAlign:"center",display:"grid",justifyContent:"center",gridGap:"25px"}}>
+            <div>
+            <Item product={product}/> 
+            </div>
+            <div>{showItemCount && (<Counter ini={1} stock={10} onAdd={handleAdd} />)}
             {!showItemCount && (
                 <Link to='/cart'>
                     <Button variant="success">
@@ -32,6 +36,8 @@ const ItemDetail = ({ product }) => {
                     </Button>
                 </Link>
             )}
+            </div>
+    </div>
         </>
     );
 }

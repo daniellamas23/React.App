@@ -2,7 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+        ECOMMERCE
 PRIMER PROYECTO EN REACT.
-ECOMMERCE
-CONECTADO A FIREBASE
 
+ ************** Deploy **************
+
+  daniellamas23.github.io/React.App
+
+*************************************
