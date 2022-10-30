@@ -69,7 +69,7 @@ const OrderModal = ({ handleBuy , orderId, clear}) => {
               Numero de Orden: {orderId}
               </Alert>
               <Link to="/">
-              <Button variant="success">Seguir comprando</Button>
+              <Button variant="success" onClick={clear} >Seguir comprando</Button>
               </Link>
             </>
 
