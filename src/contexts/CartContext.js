@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { useParams } from "react-router-dom";
 
 
 const CartContext = createContext({})
@@ -8,9 +9,11 @@ export default CartContext;
 
 
 export const CartProvider = ({ children }) => {
+    const {id} = useParams()
     const [cart, setCart] = useState([])
 
-    const addItem = (product, cantidad) => {
+    const addItem = (product, cantidad) => { 
+        console.log(product.id)  
         if (!existInCart(product.id)) {
             const item = {
                 ...product,
@@ -21,7 +24,7 @@ export const CartProvider = ({ children }) => {
         //si está repetido solo actualizo la cantidad
         else {
             //buscamos index de item
-            const itemIndex = cart.findIndex((item) => item.id === parseInt(product.id))
+            const itemIndex = cart.findIndex((item) => item.id === product.id)
             //creamos borrador del item para no modificar el estado del carrito
             const itemDraft = {...cart[itemIndex]}
             //actualizamos cantidad en borrador
@@ -35,9 +38,8 @@ export const CartProvider = ({ children }) => {
  
     }
 
-    const existInCart = (id) => cart.some((item) => item.id === parseInt(id))
-    
-
+    const existInCart = (id) => cart.some((item) => item.id === id)
+   
 
     const removeItem = (itemId) => {
       const cartDraft =  cart.filter((item) => item.id !== itemId)

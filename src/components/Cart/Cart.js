@@ -40,7 +40,7 @@ const Cart = () => {
       <Container key={element.id}>
         <div className="card grid">
           <div className="card id"><span>{cart.indexOf(element) + 1 + ")"} </span></div>
-          <p className="card cart-card id" style={{ textTransform: "uppercase", }}><b>{element.tipo}</b></p>
+          <p className="card cart-card id" style={{ textTransform: "uppercase", }}><b>{element.tipo.substring(0,3)}</b></p>
           <div className="card cart-card">
             <img src={element.img} className="card-img-top cart-img" alt={element.tipo + element.id}></img>
           </div>
