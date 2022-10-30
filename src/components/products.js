@@ -1,8 +1,10 @@
-import {getFirestore, getDocs, collection, getDoc, doc, query, where } from 'firebase/firestore';
+import { getFirestore, getDocs, collection, getDoc, doc, query, where} from 'firebase/firestore';
+
+
 
 export const getAllProducts = () => {
-  //obtenemos db
   const database = getFirestore();
+  //obtenemos db
   //obtenemos referencia
   const collectionReference = collection(database, 'items');
   return getDocs(collectionReference)
@@ -14,8 +16,8 @@ export const getAllProducts = () => {
           id: info.id,
           ...info.data()
         }))
-        return list
-        
+      return list
+
     })
     .catch((error) => console.warn(error))
 };
@@ -32,8 +34,8 @@ export const getProduct = (id) => {
       return item
     }
   }).catch(error => console.warn(error))
-    
-  
+
+
 
 
 
@@ -45,15 +47,15 @@ export const getProductsByCategory = (categoryId) => {
   const collectionReference = collection(database, 'items');
   //Se realiza query y con where se hace la comparacion
   const collectionQuery = query(collectionReference, where('tipo', '==', categoryId))
-    
-    return getDocs(collectionQuery)
-    .then (snapshot => {
+
+  return getDocs(collectionQuery)
+    .then(snapshot => {
       const list = snapshot
-      .docs
-      .map((doc) => ({
-        id:doc.id,
-        ...doc.data()
-      }))
+        .docs
+        .map((doc) => ({
+          id: doc.id,
+          ...doc.data()
+        }))
       return list
     }).catch(error => console.warn(error))
-    }
+}

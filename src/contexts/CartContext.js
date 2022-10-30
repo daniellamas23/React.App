@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { useParams } from "react-router-dom";
 
 
 const CartContext = createContext({})
@@ -9,7 +8,6 @@ export default CartContext;
 
 
 export const CartProvider = ({ children }) => {
-    const { id } = useParams()
     const [cart, setCart] = useState([])
 
     const addItem = (product, cantidad) => {

@@ -4,7 +4,10 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import CartContext from "../../contexts/CartContext";
 import OrderModal from "../OrderModal/OrderModal";
+import { createOrder } from "../orders";
 import "./Cart.css"
+
+
 
 const buyerMock = {
   name: 'customer',
@@ -15,13 +18,9 @@ const buyerMock = {
 const Cart = () => {
 
   const { cart, total, removeItem, clear } = useContext(CartContext)
-
+  const [orderId, setOrderId] = useState();
   const handleClick = (id) => {
     removeItem(id)
-  }
-
-  const handleClear = () => {
-    clear()
   }
 
    const handleBuy = async () => {
@@ -30,19 +29,20 @@ const Cart = () => {
       items: cart,
       total
     };
-    console.log(newOrder)
+    const newOrderId = await createOrder(newOrder)
+    setOrderId(newOrderId)        
     }; 
 
 
   const resultado = []
   cart.forEach((element) => {
     resultado.push(
-      <>
-        <div key={element.id} className="card grid">
+      <Container key={element.id}>
+        <div className="card grid">
           <div className="card id"><span>{cart.indexOf(element) + 1 + ")"} </span></div>
           <p className="card cart-card id" style={{ textTransform: "uppercase", }}><b>{element.tipo}</b></p>
           <div className="card cart-card">
-            <a href="#"><img src={element.img} className="card-img-top cart-img" alt={element.tipo + element.id}></img></a>
+            <img src={element.img} className="card-img-top cart-img" alt={element.tipo + element.id}></img>
           </div>
           <div className="card cart-card" style={{ fontSize: "16px", textAlign: "center" }}><p><b>Especificaciones:</b></p><p>{element.char} </p></div>
           <div className="card cart-card id">{element.cantidad}</div>
@@ -50,7 +50,7 @@ const Cart = () => {
           <div className="card cart-card id"> <FaRegTrashAlt onClick={() => handleClick(element.id)} /> </div>
 
         </div>
-      </>
+        </Container>
 
     )
   })
@@ -70,12 +70,11 @@ const Cart = () => {
       {resultado}
       {cart.length > 0 && (
         <>
-          <Button style={{ textAlign: "left", margin: 'auto' }} variant="danger" onClick={handleClear}>Vaciar carrito</Button>
+          <Button style={{ textAlign: "left", margin: 'auto' }} variant="danger" onClick={clear}>Vaciar carrito</Button>
           <div style={{ textAlign: "right" }}>
             <h3>Total: {total} </h3>
-            <OrderModal handleBuy={handleBuy}></OrderModal>  
-
-          </div>
+            <OrderModal handleBuy={handleBuy} orderId={orderId} clear={clear}></OrderModal>  
+           </div>
         </>
       )}
       {cart.length === 0 &&

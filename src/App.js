@@ -8,10 +8,8 @@ import Cart from './components/Cart/Cart';
 import { CartProvider } from './contexts/CartContext';
 
 
-
-function App() {
-
-
+function App() { 
+   
   return (
     <>
       <BrowserRouter basename='/React.App' >
