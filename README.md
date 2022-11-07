@@ -19,5 +19,4 @@ almacenar los items del market.
 *************************************
 
 NAVIGATION:
-![](https://user-images.githubusercontent.com/106124264/200206463-f9423d63-1bbc-42cd-90d5-cbe4e350e899.mp4)
-
+![Navigation](https://user-images.githubusercontent.com/106124264/200206676-9873ced4-2775-45ae-bb5a-6a04a6ad0b63.gif)
