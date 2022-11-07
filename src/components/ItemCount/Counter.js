@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 
 
 const Counter = ({ onAdd, ini, stock }) => {
-    const [count, setCount] = useState()
+    const [count, setCount] = useState(0)
 
 
 
@@ -27,10 +27,14 @@ const Counter = ({ onAdd, ini, stock }) => {
     return (
         <>
             <div className="Counter">
-                <Button variant="danger" disabled={count <= 1} onClick={handleClickMinus}>-</Button>
-                <span>{count}</span>
-                <Button variant="primary" disabled={count >= 10} onClick={handleClickAdd}>+</Button>
-                <Button variant="primary" disabled={stock <= 0} onClick={handleClick}>Agregar al  Carrito</Button>
+                <div>
+                    <Button variant="danger" disabled={count <= 1} onClick={handleClickMinus}>-</Button>
+                    <span>{count}</span>
+                    <Button variant="primary" disabled={count >= 10} onClick={handleClickAdd}>+</Button>
+                </div>
+                <div>
+                    <Button variant="primary" style={{marginLeft:"10px"}} disabled={stock <= 0} onClick={handleClick}>Agregar al  Carrito</Button>
+                </div>
             </div>
         </>
     )

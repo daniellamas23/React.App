@@ -1,8 +1,25 @@
+import { useContext, useState } from "react";
 import { Card, Container } from "react-bootstrap"
 import Button from 'react-bootstrap/Button';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import Counter from "../ItemCount/Counter";
+import CartContext from "../../contexts/CartContext";
+
+
 
 const Item = ({ product }) => {
+    const { addItem } = useContext(CartContext);
+    const location = useLocation()
+    const [showItemCount, setShowItemCount] = useState(true)
+    const [count, setCount] = useState(0)
+
+    const handleAdd = (value) => {
+        setCount(value)
+        setShowItemCount(false)
+        addItem(product, value)
+
+    }
+
     return (<>
 
         {product &&
@@ -17,14 +34,23 @@ const Item = ({ product }) => {
                         <Card.Text>
                             {product.div}  {product.precio}
                         </Card.Text>
-                        <Link to={`/item/${product.id}`}>
+                        {!location.pathname.includes("item") && <Link to={`/item/${product.id}`}>
                             <Button variant="primary">
                                 Ver detalle
                             </Button>
                         </Link>
+                        }
                     </Card.Body>
+                    {location.pathname.includes("item") && showItemCount && <Counter ini={1} stock={10} onAdd={handleAdd} />}
+                    {!showItemCount && (
+                        <Link to='/cart'>
+                            <Button variant="success">
+                                Ir al Carrito
+                            </Button>
+                        </Link>)}
                 </Card>
-            </Container>)
+            </Container>
+            )
         }
     </>);
 

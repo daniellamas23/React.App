@@ -19,11 +19,17 @@ const Cart = () => {
 
   const { cart, total, removeItem, clear } = useContext(CartContext)
   const [orderId, setOrderId] = useState();
+  const [showModal, setShowModal] = useState(false);  
+  const [show, setShow] = useState(false);
+
+  const handleOpen = () => setShow(true);
+  const handleClose = () => setShow(false);
+
   const handleClick = (id) => {
     removeItem(id)
   }
 
-   const handleBuy = async () => {
+   const handleBuy = async () => {    
     const newOrder = {
       buyer: buyerMock,
       items: cart,
@@ -31,7 +37,7 @@ const Cart = () => {
     };
     const newOrderId = await createOrder(newOrder)
     setOrderId(newOrderId)     
-       
+    clear()
     }; 
 
 
@@ -46,7 +52,7 @@ const Cart = () => {
             <img src={element.img} className="card-img-top cart-img" alt={element.tipo + element.id}></img>
           </div>
           <div className="card cart-card" style={{ fontSize: "16px", textAlign: "center" }}><p><b>Especificaciones:</b></p><p>{element.char} </p></div>
-          <div className="card cart-card id">{element.cantidad}</div>
+          <div className="card cart-card id">{element.cantidad} x</div>
           <div className="card cart-card id element"> {element.precio * element.cantidad} {element.div} </div>
           <div className="card cart-card id"> <FaRegTrashAlt onClick={() => handleClick(element.id)} /> </div>
 
@@ -73,8 +79,10 @@ const Cart = () => {
         <>
           <Button style={{ textAlign: "left", margin: 'auto' }} variant="danger" onClick={clear}>Vaciar carrito</Button>
           <div style={{ textAlign: "right" }}>
-            <h3>Total: {total} </h3>
-            <OrderModal handleBuy={handleBuy} orderId={orderId} clear={clear}></OrderModal>  
+            <h3>Total: {total} </h3>       
+            <Button variant="success" onClick={handleOpen} >
+        Checkout
+      </Button>    
            </div>
         </>
       )}
@@ -88,6 +96,13 @@ const Cart = () => {
           </div>
         </>
       }    
+      <div style={{ textAlign: "right" }}>
+       <OrderModal handleBuy={handleBuy} 
+       orderId={orderId}
+       show={show} 
+       onClose={handleClose}
+       />
+       </div>  
       </Container>
   );
 }
