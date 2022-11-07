@@ -7,16 +7,21 @@ PRIMER PROYECTO EN REACT.
 
 Detalle: 
 
-Se raliza simulacion de ecommerce de venta de hardware. 
+Se realiza simulacion de ecommerce de venta de hardware. 
 Proyecto realizado en React utilizando Firestore como DB para 
 almacenar los items del market.
 
 
- ************** Deploy **************
+*************** Deploy **************
 
   daniellamas23.github.io/React.App
 
 *************************************
 
-NAVIGATION:
+************* NAVIGATION *************
+
+
 ![Navigation](https://user-images.githubusercontent.com/106124264/200206676-9873ced4-2775-45ae-bb5a-6a04a6ad0b63.gif)
+
+
+*************************************
